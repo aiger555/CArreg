@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'drf_yasg',
+    'django_filters',
     # apps
     'cars',
     'directory',
@@ -91,7 +92,7 @@ DATABASES = {
         'NAME': env('POSTGRES_DATABASE'),
         'USER': env('POSTGRES_USER'),
         'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        'HOST': env('POSTGRES_HOST'),
         'PORT': 5432,
     }
 }
