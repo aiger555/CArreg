@@ -24,5 +24,14 @@ class Car(models.Model):
 
 
 class CarDocument(models.Model):
+    class DocumentType(models.TextChoices):
+        TECH_PASSPORT = 'tech_passport'
+        DOCUMENT_1 = 'document_1'
+        DOCUMENT_2 = 'document_2'
+        SPECIAL_DOCUMENT = 'special_document'
+
+    document_type = models.CharField(max_length=50, 
+                                    choices=DocumentType.choices, default=DocumentType.TECH_PASSPORT
+                                    )
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='documents')
     file = models.FileField()

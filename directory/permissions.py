@@ -5,7 +5,9 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-class IsSuperUser(BasePermission):
+class IsAdminUser(BasePermission):
 
     def has_permission(self, request, view):
-        return request.user.is_superuser
+        return request.user.user_type == User.UserType.ADMIN
+
+
